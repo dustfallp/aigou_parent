@@ -1,32 +1,21 @@
 package cn.itsource.aigou.util;
 
-/**
- *  ajax返回json数据
- */
+
 public class AjaxResult {
-
-    public static void main(String[] args) {
-        //在调用set方法后通过this返回当前的AjaxResult对象则可以继续调用set
-        AjaxResult ajaxResult = AjaxResult.me().setSuccess(false).setMsg("sout").setObj("asf");
-        System.out.println(ajaxResult);
-    }
-    //状态，默认成功
     private boolean success = true;
-    //提示信息，默认为操作成功
     private String msg = "操作成功";
-    //返回的参数
-    private Object obj = null;
 
-    /*
-        静态方法返回当前类对象
-     */
-    public static AjaxResult me(){
+    private Object object;//对象值:供我们在返回前台的时候，可以返回一个对象
+
+
+    public static AjaxResult me() {
         return new AjaxResult();
     }
 
     public boolean isSuccess() {
         return success;
     }
+
 
     public AjaxResult setSuccess(boolean success) {
         this.success = success;
@@ -37,17 +26,17 @@ public class AjaxResult {
         return msg;
     }
 
-    public AjaxResult setMsg(String msg) {
-        this.msg = msg;
+    public Object getObject() {
+        return object;
+    }
+
+    public AjaxResult setObject(Object object) {
+        this.object = object;
         return this;
     }
 
-    public Object getObj() {
-        return obj;
-    }
-
-    public AjaxResult setObj(Object obj) {
-        this.obj = obj;
+    public AjaxResult setMsg(String msg) {
+        this.msg = msg;
         return this;
     }
 
@@ -56,7 +45,13 @@ public class AjaxResult {
         return "AjaxResult{" +
                 "success=" + success +
                 ", msg='" + msg + '\'' +
-                ", obj=" + obj +
+                ", object=" + object +
                 '}';
+    }
+
+    public static void main(String[] args) {
+        //链式编程
+        AjaxResult ajaxResult = AjaxResult.me().setSuccess(true).setMsg("sd").setObject("ssdf");
+        System.out.println(ajaxResult);
     }
 }
