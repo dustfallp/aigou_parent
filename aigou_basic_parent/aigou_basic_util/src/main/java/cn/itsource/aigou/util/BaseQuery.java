@@ -29,4 +29,5 @@ public class BaseQuery {
     public void setQ(String q) {
         this.q = q;
     }
+
 }
