@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/palt")
+@RequestMapping("/plat")
 public class ControllerTest {
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public AjaxResult test(){
-        return AjaxResult.me().setMsg("路过").setSuccess(true).setObj("打酱油");
+        return AjaxResult.me().setMsg("路过").setSuccess(true).setObject("打酱油");
     }
 }
