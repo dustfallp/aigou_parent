@@ -2,10 +2,14 @@ package cn.itsource.aigou.util;
 
 public class BaseQuery {
 
-    private Integer page = 0;
+    private Integer page = 1;
     private Integer rows = 10;
-    private String q;
+    private String keyword;
+    private Integer start = 0;
 
+    public Integer getStart(){
+        return (this.page-1)*this.rows;
+    }
     public Integer getPage() {
         return page;
     }
@@ -22,11 +26,11 @@ public class BaseQuery {
         this.rows = rows;
     }
 
-    public String getQ() {
-        return q;
+    public String getKeyword() {
+        return keyword;
     }
 
-    public void setQ(String q) {
-        this.q = q;
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 }
