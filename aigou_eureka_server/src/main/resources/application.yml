@@ -8,3 +8,6 @@ eureka:
     register-with-eureka: false #是否从服务获取注册信息
     service-url:
       defaultZone: http://eureka-7001.com:7001/eureka/ #注册中心的地址
+
+
+
